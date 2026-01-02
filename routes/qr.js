@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
         }
     }
 
-    async function GIFTED_QR_CODE() {
+    async function HYPER_QR_CODE() {
         const { version } = await fetchLatestBaileysVersion();
         console.log(version);
         const { state, saveCreds } = await useMultiFileAuthState(path.join(sessionDir, id));
@@ -62,7 +62,7 @@ router.get('/', async (req, res) => {
                             <!DOCTYPE html>
                             <html>
                             <head>
-                                <title>GIFTED-MD | QR CODE</title>
+                                <title>HYPER-XMD | QR CODE</title>
                                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
                                 <style>
                                     body {
@@ -166,7 +166,7 @@ router.get('/', async (req, res) => {
                             </head>
                             <body>
                                 <div class="container">
-                                    <h1>GIFTED QR CODE</h1>
+                                    <h1>HYPER QR CODE</h1>
                                     <div class="qr-container">
                                         <div class="qr-code pulse">
                                             <img src="${qrImage}" alt="QR Code"/>
@@ -230,28 +230,28 @@ router.get('/', async (req, res) => {
                         let b64data = compressedData.toString('base64');
                         const Sess = await sendButtons(Gifted, Gifted.user.id, {
             title: '',
-            text: 'Gifted~' + b64data,
-            footer: `> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɢɪғᴛᴇᴅ ᴛᴇᴄʜ*`,
+            text: 'Hyper-xmd~' + b64data,
+            footer: `> *𝑷𝑶𝑾𝑬𝑹𝑬𝑫 𝑩𝒀 𝑯𝒀𝑷𝑬𝑹 𝑻𝑬𝑪𝑯*`,
             buttons: [
                 { 
                     name: 'cta_copy', 
                     buttonParamsJson: JSON.stringify({ 
                         display_text: 'Copy Session', 
-                        copy_code: 'Gifted~' + b64data 
+                        copy_code: 'Hyper~' + b64data 
                     }) 
                 },
                 {
                     name: 'cta_url',
                     buttonParamsJson: JSON.stringify({
                         display_text: 'Visit Bot Repo',
-                        url: 'https://github.com/mauricegift/gifted-md'
+                        url: 'https://github.com/hyper-tech254/hyper-xmd'
                     })
                 },
                 {
                     name: 'cta_url',
                     buttonParamsJson: JSON.stringify({
                         display_text: 'Join WaChannel',
-                        url: 'https://whatsapp.com/channel/0029Vb3hlgX5kg7G0nFggl0Y'
+                        url: 'https://whatsapp.com/channel/0029VbCNM1uKmCPRQ9XLQI2G'
                     })
                 }
             ]
@@ -267,7 +267,7 @@ router.get('/', async (req, res) => {
                     
                 } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     await delay(10000);
-                    GIFTED_QR_CODE();
+                    HYPER_QR_CODE();
                 }
             });
         } catch (err) {
@@ -281,7 +281,7 @@ router.get('/', async (req, res) => {
     }
 
     try {
-        await GIFTED_QR_CODE();
+        await HYPER_QR_CODE();
     } catch (finalError) {
         console.error("Final error:", finalError);
         await cleanUpSession();
